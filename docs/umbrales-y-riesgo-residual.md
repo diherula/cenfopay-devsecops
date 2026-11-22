@@ -33,7 +33,7 @@
 ## 4. Riesgos residuales (lo que queda abierto después de corregir)
 | # | Riesgo | Origen (hallazgo/huella) | Por qué no se corrige ahora | Control compensatorio | Dueño | Revisión |
 |---|--------|--------------------------|-----------------------------|-----------------------|-------|----------|
-| 1 | | | | | | |
+| 1 | Pyrthon 3.9 no recibe actualizaciones | Se verifica por medio del analisis de la semana 2 | Se va a eliminar en la semana 3 | Se elimina en la semana 3 | Dilan | *** |
 
 ## 5. Excepciones aprobadas
 | Herramienta | ID | Justificación | Responsable | Vence |
