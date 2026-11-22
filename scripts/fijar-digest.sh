@@ -11,7 +11,7 @@ for linea in "${lineas[@]}"; do
   variable="${linea#ARG }"; variable="${variable%%=*}"
   imagen="${linea#*=}"
   info "Buscando el digest de ${imagen}…"
-  digest="$(docker buildx imagetools inspect "$imagen" | awk '/^Digest:/ {print $2; exit}')"
+  digest="$(docker buildx imagetools inspect "$imagen" | awk '/^Digest:/ && !encontrado {print $2; encontrado=1}')"
   [[ "$digest" == sha256:* ]] || falla "No pude obtener el digest de ${imagen}. Revisa tu conexión y reintenta."
   sed -i "s|^ARG ${variable}=${imagen}\$|ARG ${variable}=${imagen}@${digest}|" "$dockerfile"
   ok "${variable} = ${imagen}@${digest:0:19}…"

@@ -38,8 +38,9 @@
 ## 5. Verificación post-endurecimiento
 Pega aquí la salida de `bash scripts/verificar-endurecimiento.sh cenfopay:local cenfopay-app-1`.
 
+[i] Imagen: cenfopay:local
 ✅ END-01 La imagen define un usuario no root (USER)       USER=10001:10001
-❌ END-02 Sin secretos en variables ENV de la imagen       variables: GPG_KEY 
+✅ END-02 Sin secretos en variables ENV de la imagen       ninguna variable sensible
 ✅ END-03 HEALTHCHECK definido                             presente
 ❌ END-04 Tamaño de la imagen <= 250 MB                   312 MB (superficie de ataque mayor)
 ❌ END-05 Sin herramientas innecesarias en runtime         encontradas: apt-get __sin_shell__

@@ -32,7 +32,7 @@ else
 fi
 
 SENSIBLES="$(docker image inspect -f '{{range .Config.Env}}{{println .}}{{end}}' "$IMAGEN" \
-  | grep -Ei '^[A-Z_]*(PASSWORD|SECRET|TOKEN|KEY)[A-Z_]*=.+' | cut -d= -f1 | grep -v '_FILE$' | tr '\n' ' ' || true)"
+  | grep -Ei '^[A-Z_]*(PASSWORD|SECRET|TOKEN|KEY)[A-Z_]*=.+' | cut -d= -f1 | grep -vE '(_FILE$|^GPG_KEY$)' | tr '\n' ' ' || true)"
 if [[ -z "$SENSIBLES" ]]; then
   registrar END-02 "Sin secretos en variables ENV de la imagen" PASA ALTA "ninguna variable sensible"
 else
